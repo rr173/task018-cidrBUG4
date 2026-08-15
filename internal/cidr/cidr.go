@@ -264,9 +264,6 @@ func Split(b Block, n int) ([]Block, error) {
 	if n < 1 || (n&(n-1)) != 0 {
 		return nil, ErrSplitCountNotPow2
 	}
-	if n == 1 {
-		return nil, nil
-	}
 	subPrefix := b.Prefix + log2(n)
 	if subPrefix > 32 {
 		return nil, ErrSplitPrefixOverflow
